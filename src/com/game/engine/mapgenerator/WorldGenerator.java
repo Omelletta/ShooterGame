@@ -1,4 +1,4 @@
-package com.game.mapgenerator;
+package com.game.engine.mapgenerator;
 
 public interface WorldGenerator {
 

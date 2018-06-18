@@ -6,6 +6,24 @@ public class Font {
     private int[] offsets;
     private int[] widths;
 
+    public Font(String path) {
+        fontImage = new Image(path);
+        offsets = new int[256];
+        widths = new int[256];
+
+        int unicode = 0;
+
+        for (int i = 0; i < fontImage.getW(); i++) {
+            if (fontImage.getP()[i] == 0xff0000ff) {
+                offsets[unicode] = i;
+            }
+            if (fontImage.getP()[i] == 0xffffff00) {
+                widths[unicode] = i - offsets[unicode];
+                unicode++;
+            }
+        }
+    }
+
     public Image getFontImage() {
         return fontImage;
     }
@@ -28,27 +46,5 @@ public class Font {
 
     public void setWidths(int[] widths) {
         this.widths = widths;
-    }
-
-    public Font(String path)
-    {
-        fontImage = new Image(path);
-        offsets = new int[256];
-        widths = new int[256];
-
-        int unicode = 0;
-
-        for (int i=0;i<fontImage.getW();i++)
-        {
-            if (fontImage.getP()[i] == 0xff0000ff)
-            {
-                offsets[unicode] = i;
-            }
-            if (fontImage.getP()[i] == 0xffffff00)
-            {
-                widths[unicode] = i -offsets[unicode];
-                unicode++;
-            }
-        }
     }
 }

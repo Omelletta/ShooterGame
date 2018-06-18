@@ -7,8 +7,8 @@ public class EnemyWeapon {
     private int color;
     private int damage;
     private SoundClip sound;
-    EnemyWeapon(int cooldown, int color,int damage, String sound)
-    {
+
+    EnemyWeapon(int cooldown, int color, int damage, String sound) {
         this.cooldown = cooldown;
         this.color = color;
         this.damage = damage;

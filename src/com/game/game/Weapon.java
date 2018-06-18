@@ -11,8 +11,8 @@ public class Weapon {
     private String name;
     private int power;
     private String type;
-    Weapon(int bullets, int cooldown, String shot,String reload,String name,int power, String type)
-    {
+
+    Weapon(int bullets, int cooldown, String shot, String reload, String name, int power, String type) {
         this.bullets = bullets;
         this.maxbullets = bullets;
         this.cooldown = cooldown;

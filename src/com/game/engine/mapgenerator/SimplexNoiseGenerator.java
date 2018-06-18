@@ -1,4 +1,4 @@
-package com.game.mapgenerator;
+package com.game.engine.mapgenerator;
 
 import java.util.Random;
 
@@ -6,12 +6,14 @@ public class SimplexNoiseGenerator implements WorldGenerator {
     private int OCTAVES;
     private double ROUGHNESS;
     private double SCALE;
+
     public SimplexNoiseGenerator(int octaves, double roughness, double scale) {
         this.OCTAVES = octaves; // Number of Layers combined together to get a natural looking surface
         this.ROUGHNESS = roughness; // Increasing the of the range between -1 and 1, causing higher values eg more
         // rough terrain
         this.SCALE = scale; // Overall scaling of the terrain
     }
+
     @Override
     public double[][] createWorld(int width, int height) {
         return generateOctavedSimplexNoise(width, height);

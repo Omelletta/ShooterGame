@@ -24,6 +24,7 @@ public class Image {
 
         image.flush();
     }
+
     public Image(BufferedImage bf) {
         BufferedImage image = bf;
 
@@ -34,8 +35,7 @@ public class Image {
         image.flush();
     }
 
-    public Image(int[] p, int w, int h)
-    {
+    public Image(int[] p, int w, int h) {
         this.p = p;
         this.w = w;
         this.h = h;

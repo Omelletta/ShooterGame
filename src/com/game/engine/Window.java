@@ -5,18 +5,17 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
-public class Window
-{
+public class Window {
     private JFrame frame;
     private BufferedImage image;
     private Canvas canvas;
     private BufferStrategy bs;
     private Graphics g;
-    public Window(GameContainer gc)
-    {
-        image = new BufferedImage(gc.getWidth(),gc.getHeight(),BufferedImage.TYPE_INT_RGB);
+
+    public Window(GameContainer gc) {
+        image = new BufferedImage(gc.getWidth(), gc.getHeight(), BufferedImage.TYPE_INT_RGB);
         canvas = new Canvas();
-        Dimension s = new Dimension((int)(gc.getWidth() * gc.getScale()),(int)(gc.getHeight()*gc.getScale()));
+        Dimension s = new Dimension((int) (gc.getWidth() * gc.getScale()), (int) (gc.getHeight() * gc.getScale()));
         canvas.setPreferredSize(s);
         canvas.setMaximumSize(s);
         canvas.setMinimumSize(s);
@@ -37,9 +36,9 @@ public class Window
         g = bs.getDrawGraphics();
         canvas.requestFocus();
     }
-    public void upadte()
-    {
-        g.drawImage(image,0,0,canvas.getWidth(),canvas.getHeight(),null);
+
+    public void upadte() {
+        g.drawImage(image, 0, 0, canvas.getWidth(), canvas.getHeight(), null);
         bs.show();
     }
 

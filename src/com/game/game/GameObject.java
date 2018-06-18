@@ -6,10 +6,11 @@ import com.game.engine.Renderer;
 public abstract class GameObject {
     protected String tag;
     protected float posX, posY;
-    protected int width,height;
-    protected  boolean dead = false;
+    protected int width, height;
+    protected boolean dead = false;
 
-    public abstract void update(GameContainer gc,GameManager gm, float dt);
+    public abstract void update(GameContainer gc, GameManager gm, float dt);
+
     public abstract void render(GameContainer gc, Renderer r);
 
     public String getTag() {

@@ -1,10 +1,7 @@
-package com.game.mapgenerator;
+package com.game.engine.mapgenerator;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class MapImage {
 
@@ -68,7 +65,7 @@ public class MapImage {
 
                 //Defining coloring rules for each value
                 //You may also use enums with switch case here
-                if ( -0.8 <array[x][y] && array[x][y] > 0.1) { // fill with black
+                if (-0.8 < array[x][y] && array[x][y] > 0.1) { // fill with black
                     g2d.setColor(Color.BLACK);
                     g2d.fillRect(y * PIXEL_SCALE, x * PIXEL_SCALE, PIXEL_SCALE, PIXEL_SCALE);
 
@@ -81,8 +78,8 @@ public class MapImage {
         // Disposes of this graphics context and releases any system resources
         // that it is using.
         //resize
-        Image tmp = bufferedImage.getScaledInstance(IMAGE_WIDTH/100, IMAGE_HEIGHT/100, Image.SCALE_SMOOTH);
-        BufferedImage dimg = new BufferedImage(IMAGE_WIDTH/100, IMAGE_HEIGHT/100, BufferedImage.TYPE_INT_ARGB);
+        Image tmp = bufferedImage.getScaledInstance(IMAGE_WIDTH / 100, IMAGE_HEIGHT / 100, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(IMAGE_WIDTH / 100, IMAGE_HEIGHT / 100, BufferedImage.TYPE_INT_ARGB);
         g2d = dimg.createGraphics();
         g2d.drawImage(tmp, 0, 0, null);
         g2d.dispose();

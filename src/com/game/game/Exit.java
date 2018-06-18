@@ -5,8 +5,8 @@ import com.game.engine.Renderer;
 
 public class Exit extends GameObject {
     private Player player;
-    public Exit(int posX, int posY, Player pl)
-    {
+
+    public Exit(int posX, int posY, Player pl) {
         this.tag = "exit";
         this.posX = posX * GameManager.TS;
         this.posY = posY * GameManager.TS;
@@ -15,10 +15,10 @@ public class Exit extends GameObject {
         this.player = pl;
 
     }
+
     @Override
     public void update(GameContainer gc, GameManager gm, float dt) {
-        if(this.posX > player.posX-5&&this.posX < player.posX+5 && this.posY > player.posY-5&&this.posY < player.posY+5)
-        {
+        if (this.posX > player.posX - 5 && this.posX < player.posX + 5 && this.posY > player.posY - 5 && this.posY < player.posY + 5) {
             this.dead = true;
             gm.newlvl();
 
@@ -27,6 +27,6 @@ public class Exit extends GameObject {
 
     @Override
     public void render(GameContainer gc, Renderer r) {
-        r.drawFillRect((int)posX ,(int)posY ,16,16,	0xFFac0000);
+        r.drawFillRect((int) posX, (int) posY, 16, 16, 0xFFac0000);
     }
 }

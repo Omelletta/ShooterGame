@@ -8,31 +8,28 @@ public class Camera {
     private GameObject target = null;
     private String targetTag;
 
-    public Camera(String tag)
-    {
+    public Camera(String tag) {
         this.targetTag = tag;
     }
 
-    public void update(GameContainer gc,GameManager gm, float dt)
-    {
-        if(target == null)
-        {
+    public void update(GameContainer gc, GameManager gm, float dt) {
+        if (target == null) {
             target = gm.getObject(targetTag);
         }
-        if(target == null)
+        if (target == null)
             return;
-        float targetX = (target.getPosX() + target.getWidth()/2) - gc.getWidth() /2;
-        float targetY = (target.getPosY()+ target.getHeight()/2) - gc.getHeight()/2;
-        offX -= dt*(offX - targetX) *5;
-        offY -= dt*(offY - targetY) *5;
+        float targetX = (target.getPosX() + target.getWidth() / 2) - gc.getWidth() / 2;
+        float targetY = (target.getPosY() + target.getHeight() / 2) - gc.getHeight() / 2;
+        offX -= dt * (offX - targetX) * 5;
+        offY -= dt * (offY - targetY) * 5;
         Player player = (Player) target;
         gc.getRenderer().setCamX((int) offX);
         gc.getRenderer().setCamY((int) offY);
         player.setCamX((int) offX);
         player.setCamY((int) offY);
     }
-    public void render(Renderer r)
-    {
+
+    public void render(Renderer r) {
         r.setCamX((int) offX);
         r.setCamY((int) offY);
     }
